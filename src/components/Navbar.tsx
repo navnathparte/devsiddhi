@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
 interface NavbarProps {
   activeSection: number;
@@ -12,8 +12,11 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
   const menuItems = ["Home", "About", "Portfolio", "Contact", "Blog"];
 
   return (
-    <header className="fixed z-50 top-0 left-0 right-0 w-full">
-      <div className="flex justify-between px-8 py-8 opacity-100 transition-opacity duration-300">
+    <header className="fixed z-50 top-3 left-3 right-0 w-full">
+      <div
+        className="flex justify-between px-8 py-8 opacity-100 transition-opacity duration-300"
+        style={{ padding: "10px", margin: "10px" }}
+      >
         <div>
           <Image
             className="w-32 h-16 object-contain"
@@ -24,17 +27,11 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           />
         </div>
 
-        {/* MENU STARTS */}
         <div className="menu">
           <nav>
-            <ul className="flex">
+            <ul className="flex space-x-8">
               {menuItems.map((item, index) => (
-                <li
-                  key={item}
-                  className={`text-lg ${
-                    index !== menuItems.length - 1 ? "mr-9" : ""
-                  }`}
-                >
+                <li key={item}>
                   <span
                     onClick={() => onNavigate(index)}
                     className={`cursor-pointer transition-all duration-300 relative font-medium

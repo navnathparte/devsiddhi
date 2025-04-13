@@ -1,14 +1,16 @@
 /* src/app/globals.css */
 
 /* Import preflight styles for Tailwind CSS v4 */
-@import "tailwindcss/preflight"; 
+@import "tailwindcss/preflight";
 
 @tailwind utilities;
+
 
 /* Swiper scrollbar custom styling */
 .swiper-scrollbar {
   height: 12px !important;
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  padding: 10px;
+  background-color: rgba(215, 22, 22, 0.1) !important;
   border-radius: 6px !important;
   position: fixed !important;
   left: 50% !important;

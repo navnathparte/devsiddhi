@@ -21,8 +21,8 @@ export default function ScrollIndicator({
             onClick={() => onNavigate(index)}
             className={`w-3 h-3 rounded-full transition-colors duration-300 ${
               activeSection === index
-                ? "bg-blue-600"
-                : "bg-gray-300 hover:bg-blue-400"
+                ? "bg-white-600"
+                : "bg-white-700 hover:bg-white-500"
             }`}
             aria-label={`Go to ${section} section`}
           />

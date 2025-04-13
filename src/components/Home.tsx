@@ -66,35 +66,31 @@ const Home: React.FC = () => {
   }, [activeVideo]);
 
   return (
-    <div className="home min-w-screen w-screen flex items-center justify-center relative">
-      {/* First Video */}
+    <div className="w-full h-full relative">
+      <video
+        ref={firstVideoRef}
+        className="w-full h-full object-cover"
+        autoPlay
+        muted
+        playsInline
+        preload="auto"
+        style={{ display: activeVideo === 1 ? "block" : "none" }}
+      >
+        <source src="videos/fableweb.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* Title Text */}
-      <div className="z-10 relative text-center">
-        <div>
-          <h1 className="relative z-10 text-[150px] font-extrabold leading-[150px] m-0">
-            <span className="block overflow-hidden px-[200px] leading-[160px]">
-              <span className="block overflow-hidden transform -translate-x-1/2 -translate-y-1/2 tracking-wider text-transparent [text-shadow:8px_8px_#fff,20px_20px_#222] [--webkit-text-stroke-width:0px] [--webkit-text-stroke-color:#333]">
-                Hello
-              </span>
-            </span>
-          </h1>
-        </div>
-        <div className="absolute h-[170px] w-[200px] p-0 flex items-center justify-center text-white text-[18px] left-[620px] top-0 font-normal text-left rounded-full flex-col leading-[30px]">
-          <p className="m-0">Welcome</p>
-          <p className="m-0">to my site</p>
-        </div>
-      </div>
-
-      {/* Call to Action */}
-      <div className="absolute right-[60px] top-[calc(50vh-30px)] z-10">
-        <button
-          className="bg-white text-black font-bold py-2 px-4 rounded-xl shadow-md hover:bg-gray-200 transition"
-          onClick={enableSound}
-        >
-          Enable Sound
-        </button>
-      </div>
+      <video
+        ref={secondVideoRef}
+        className="w-full h-full object-cover"
+        muted
+        playsInline
+        preload="auto"
+        style={{ display: activeVideo === 2 ? "block" : "none" }}
+      >
+        <source src="videos/webFeliciaWalkThrough.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 };
