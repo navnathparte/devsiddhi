@@ -8,16 +8,8 @@ interface HorizontalScrollProps {
   sections: string[];
 }
 
-const sectionColors = [
-  "bg-blue-50",
-  "bg-green-50",
-  "bg-yellow-50",
-  "bg-purple-50",
-  "bg-red-50",
-];
-
 const HorizontalScroll = forwardRef<HTMLDivElement, HorizontalScrollProps>(
-  function HorizontalScroll({ sections }, ref) {
+  function HorizontalScroll({}, ref) {
     return (
       <div
         ref={ref}
