@@ -3,8 +3,9 @@ import PageTransition from "../components/PageTransition";
 const About = () => {
   return (
     <PageTransition>
-      <div className="  flex items-center justify-center overflow-hidden p-4 pt-auto lg:pt-39 ">
+      <div className="bg-[url('/BG-Pattern.png')] bg-cover bg-center bg-no-repeat bg-fixed flex items-center justify-center overflow-hidden p-4 pt-auto lg:pt-39">
         <div className="w-full max-w-6xl rounded-3xl flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-5 overflow-hidden">
+          
           {/* Left Side - Image */}
           <div className="flex-1 flex flex-col justify-center items-center">
             <img
