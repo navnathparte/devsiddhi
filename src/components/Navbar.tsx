@@ -5,6 +5,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const isHome = location.pathname === "/";
+  const isAbout = location.pathname === "/about";
 
   // Add an array of nav items
   const navItems = [
@@ -17,17 +18,24 @@ export default function Navbar() {
   ];
 
   return (
+    <div
+    className={`${
+      isAbout
+        ? "bg-[url('/BG-Pattern.png')] bg-cover bg-center bg-no-repeat bg-fixed"
+        : ""
+    }`}
+  >
     <nav className="sticky top-0 left-0 lg:top-auto z-50 w-full bg-transparent font-bold p-5">
       <div className="flex justify-between items-center">
         <div className="text-2xl font-bold">
           <Link to="/">
             {isHome ? (
-              <img src="DevsiddhiLogo.png" alt="Home Logo" className="w-45" />
+              <img src="DevsiddhiLogo.png" alt="Home Logo" className="w-65" />
             ) : (
               <img
                 src="Devsiddhi-Logo-(2).png"
                 alt="Default Logo"
-                className="w-45"
+                className="w-65"
               />
             )}
           </Link>
@@ -57,5 +65,6 @@ export default function Navbar() {
         </ul>
       </div>
     </nav>
+  </div>
   );
 }
