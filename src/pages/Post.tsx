@@ -79,7 +79,12 @@ const settings = {
 
 const Post = () => {
   return (
-    <PageTransition>
+    <div className="relative min-h-screen">
+      <div
+        className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
+        style={{ backgroundImage: "url('/city.jpg')" }}
+      />
+
       <div className="flex justify-center items-center text-center mb-6">
         <h2 className="text-4xl text-[#B68842] font-extrabold">Latest Posts</h2>
       </div>
@@ -116,7 +121,7 @@ const Post = () => {
           </Slider>
         </div>
       </div>
-    </PageTransition>
+    </div>
   );
 };
 
