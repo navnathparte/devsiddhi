@@ -2,8 +2,6 @@ import Slider from "react-slick";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import PageTransition from "../components/PageTransition";
-
 const posts = [
   {
     category: "DESIGN",
