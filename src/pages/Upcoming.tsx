@@ -64,7 +64,7 @@ const Upcoming: React.FC = () => {
       {/* Background */}
       <div
         className="fixed inset-0 bg-cover blur-sm bg-center scale-110 pointer-events-none z-0"
-        style={{ backgroundImage: "url('/city-2.jpg')" }}
+        // style={{ backgroundImage: "url('/city-2.jpg')" }}
       />
 
       {/* Foreground content */}

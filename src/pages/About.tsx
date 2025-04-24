@@ -4,7 +4,7 @@ const About = () => {
       {/* Background Image Layer */}
       <div
         className="fixed inset-0 bg-cover bg-center transform scale-110 pointer-events-none z-0"
-        style={{ backgroundImage: "url('/BG-Pattern.png')" }}
+        // style={{ backgroundImage: "url('/BG-Pattern.png')" }}
       />
 
       {/* Foreground Content */}
