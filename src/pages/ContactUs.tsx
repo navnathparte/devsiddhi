@@ -1,5 +1,6 @@
+"use client";
+
 import React, { FormEvent, useEffect, useState } from "react";
-import "../index.css";
 import {
   faPhone,
   faEnvelope,
@@ -13,6 +14,7 @@ import {
   faFacebookF,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import PageTransition from "../components/PageTransition";
 
 const ContactSplit: React.FC = () => {
@@ -22,7 +24,6 @@ const ContactSplit: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission logic
     setTimeout(() => {
       alert("Form submitted!");
       setIsSubmitting(false);
@@ -39,61 +40,74 @@ const ContactSplit: React.FC = () => {
   return (
     <PageTransition>
       <div className="flex flex-col md:flex-row h-screen overflow-hidden">
-        <div className="flex-1 flex flex-col items-center px-6 py-10">
+        {/* Left Side: Contact Info */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="flex-1 flex flex-col items-center px-6 py-10"
+        >
           <div className="w-full max-w-2xl flex flex-col gap-10 space-y-4">
-            {/* Title */}
-            <h1 className="animate-bounce text-4xl text-center text-[#B68842] font-bold">
+            <motion.h1
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              className="animate-bounce text-4xl text-center text-[#B68842] font-bold"
+            >
               Get in touch
-            </h1>
+            </motion.h1>
 
-            {/* Details */}
+            {/* Contact Cards */}
             <div className="grid grid-cols-2 gap-15 m-2 p-4">
-              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
-                  <FontAwesomeIcon icon={faPhone} />
-                </div>
-                <p className="text-black font-bold text-lg mt-0">Phone</p>
-                <a
-                  href="tel:+919875033195"
-                  className="mt-1 block text-sm font-medium text-white hover:text-[#ccafaf] transition-colors duration-200"
+              {/* Card */}
+              {[
+                {
+                  icon: faPhone,
+                  label: "Phone",
+                  value: "+91 98750 33195",
+                  href: "tel:+919875033195",
+                },
+                {
+                  icon: faEnvelope,
+                  label: "Email",
+                  value: "9nath.parte@gmail.com",
+                  href: "mailto:9nath.parte@gmail.com",
+                },
+                {
+                  icon: faMapMarkerAlt,
+                  label: "Address",
+                  value:
+                    "Metro-Rail station, Devsiddhi falicia, opp. Randesan, Gandhinagar, Gujarat 382421",
+                  href: "https://www.google.com/maps?q=Metro-Rail+station,+Devsiddhi+falicia,+opp.+Randesan,+Randesan,+Gandhinagar,+Gujarat+382421",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg"
                 >
-                  +91 98750 33195
-                </a>
-              </div>
+                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
+                    <FontAwesomeIcon icon={item.icon} />
+                  </div>
+                  <p className="text-black font-bold text-lg mt-0">
+                    {item.label}
+                  </p>
+                  <a
+                    href={item.href}
+                    className="mt-1 block text-sm font-medium text-white hover:text-[#ccafaf] transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.value}
+                  </a>
+                </motion.div>
+              ))}
 
-              {/* Card 2 */}
-              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </div>
-                <p className="text-black font-bold text-lg mt-0">Email</p>
-                <a
-                  href="mailto:9nath.parte@gmail.com"
-                  className="mt-1 block text-sm font-semibold text-white hover:text-[#ccafaf] transition-colors duration-200"
-                >
-                  9nath.parte@gmail.com
-                </a>
-              </div>
-
-              {/* Card 3 */}
-              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
-                  <FontAwesomeIcon icon={faMapMarkerAlt} />
-                </div>
-                <p className="text-black font-bold text-lg mt-0.5">Address</p>
-                <a
-                  href="https://www.google.com/maps?q=Metro-Rail+station,+Devsiddhi+falicia,+opp.+Randesan,+Randesan,+Gandhinagar,+Gujarat+382421"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-1 block text-sm font-semibold text-white hover:text-[#ccafaf] transition-colors duration-200"
-                >
-                  Metro-Rail station, Devsiddhi falicia, opp. Randesan,
-                  Randesan, Gandhinagar, Gujarat 382421
-                </a>
-              </div>
-
-              {/* Card 4 */}
-              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
+              {/* Follow Me Card */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg"
+              >
                 <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
                   <FontAwesomeIcon icon={faShareAlt} />
                 </div>
@@ -103,53 +117,55 @@ const ContactSplit: React.FC = () => {
                     href="https://www.linkedin.com/company/devsiddhi-group10"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-[#AB5B55]"
                   >
-                    <FontAwesomeIcon
-                      className="hover:text-[#AB5B55] transition-colors duration-200"
-                      icon={faLinkedin}
-                    />
+                    <FontAwesomeIcon icon={faLinkedin} />
                   </a>
                   <a
                     href="https://www.instagram.com/devsiddhigroup/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-[#AB5B55]"
                   >
-                    <FontAwesomeIcon
-                      className="hover:text-[#AB5B55]"
-                      icon={faInstagram}
-                    />
+                    <FontAwesomeIcon icon={faInstagram} />
                   </a>
                   <a
                     href="https://www.facebook.com/devsiddhi.group.10"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-[#AB5B55]"
                   >
-                    <FontAwesomeIcon
-                      className="hover:text-[#AB5B55]"
-                      icon={faFacebookF}
-                    />
+                    <FontAwesomeIcon icon={faFacebookF} />
                   </a>
                   <a
                     href="https://www.youtube.com/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-[#AB5B55]"
                   >
-                    <FontAwesomeIcon
-                      className="hover:text-[#AB5B55]"
-                      icon={faYoutube}
-                    />
+                    <FontAwesomeIcon icon={faYoutube} />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className=" flex justify-center items-start">
-          <div className="hidden md:block w-px h-[70%] bg-[#B68842]" />
-        </div>
+        {/* Divider */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 0.6 }}
+          className="hidden md:block w-px h-[70%] bg-[#B68842] origin-top"
+        ></motion.div>
 
-        <div className="flex-1 flex flex-col items-center px-0 py-0">
+        {/* Right Side: Form */}
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="flex-1 flex flex-col items-center px-0 py-0"
+        >
           <div className="w-full max-w-3xl mx-auto px-4 py-2 flex flex-col gap-8">
             <div className="text-center space-y-2 py-2">
               <h1 className="text-2xl md:text-3xl font-bold text-[#B68842]">
@@ -161,7 +177,6 @@ const ContactSplit: React.FC = () => {
               </h4>
             </div>
 
-            {/* Form Container */}
             <div className="bg-white border border-[#B68842] rounded-xl shadow-lg px-6 py-8 w-full max-w-md mx-auto">
               <form onSubmit={onSubmit} className="flex flex-col gap-4 w-full">
                 <div>
@@ -213,9 +228,10 @@ const ContactSplit: React.FC = () => {
               </form>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </PageTransition>
   );
 };
+
 export default ContactSplit;
