@@ -41,13 +41,24 @@ const Achievements: React.FC = () => {
                 className="box bg-[#B68842] text-center px-6 py-8 rounded-2xl shadow-md w-[160px]"
               >
                 <div className="text-white mb-2 p-1">{item.icon}</div>
-                <div className="text-3xl font-bold text-white bg-gradient-to-r from-[#693132] via-[#B68842] to-[#90494a] rounded-full w-22 h-22 flex items-center justify-center mx-auto mb-4">
-                  <CountUp
-                    key={`count-${index}`}
-                    end={item.value}
-                    duration={4}
-                  />
-                  +
+                <div className="group [perspective:800px] w-fit mx-auto">
+                  <div
+                    className="bg-gradient-to-r from-[#693132] via-[#B68842] to-[#90494a] 
+      rounded-full w-22 h-22 flex items-center justify-center 
+      transition-transform duration-500 transform group-hover:[transform:rotateY(180deg)] 
+      [transform-style:preserve-3d] group-hover:animate-bounceCustom"
+                  >
+                    <div className="backface-hidden">
+                      <span className="text-3xl font-bold text-white">
+                        <CountUp
+                          key={`count-${index}`}
+                          end={item.value}
+                          duration={4}
+                        />
+                        +
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div className="text-white font-bold tracking-wide">
                   {item.label}
