@@ -63,13 +63,13 @@ const Upcoming: React.FC = () => {
     <div className="relative min-h-screen">
       {/* Background */}
       <div
-        className="fixed inset-0 bg-cover blur-sm bg-center scale-110 pointer-events-none z-0"
-        // style={{ backgroundImage: "url('/city-2.jpg')" }}
+        className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
+        style={{ backgroundImage: "url('/OngoingProjects.jpg')" }}
       />
 
       {/* Foreground content */}
       <div className="relative z-10 p-6">
-        <h1 className="text-4xl font-extrabold text-center text-[#B68842] mb-8">
+        <h1 className="text-4xl font-extrabold text-center text-[#B68842] mb-18">
           Current Projects
         </h1>
 

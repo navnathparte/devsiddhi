@@ -85,17 +85,17 @@ export default function Home() {
             {!isSecondVideo ? (
               <>
                 <img
-                  src="/Fable-Logo.png"
-                  alt="Fable-Logo"
-                  className="h-30 w-30"
+                  src="/FeliciaLogo.png"
+                  alt="FeliciaLogo"
+                  className="h-25 w-35"
                 />
               </>
             ) : (
               <>
                 <img
-                  src="/FeliciaLogo.png"
-                  alt="FeliciaLogo"
-                  className="h-25 w-35"
+                  src="/Fable-Logo.png"
+                  alt="Fable-Logo"
+                  className="h-30 w-30"
                 />
               </>
             )}
@@ -156,7 +156,7 @@ export default function Home() {
         loop
         muted
       >
-        <source src="/videos/fableweb.webm" type="video/webm" />
+        <source src="/videos/webFelicia+WalkThrough.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
@@ -170,7 +170,7 @@ export default function Home() {
         loop
         muted
       >
-        <source src="/videos/webFelicia+WalkThrough.webm" type="video/webm" />
+        <source src="/videos/fableweb.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
     </div>

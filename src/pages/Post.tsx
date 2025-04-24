@@ -80,7 +80,7 @@ const Post = () => {
     <div className="relative min-h-screen">
       <div
         className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
-        style={{ backgroundImage: "url('/city.jpg')" }}
+        style={{ backgroundImage: "url('/BG-Pattern.png')" }}
       />
 
       <div className="flex justify-center items-center text-center mb-6">
