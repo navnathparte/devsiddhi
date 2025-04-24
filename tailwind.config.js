@@ -6,18 +6,19 @@ module.exports = {
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
       },
-      animation: {
-        shimmer: "shimmer 3s linear infinite",
-      },
       keyframes: {
         shimmer: {
-          from: {
-            backgroundPosition: "0 0",
-          },
-          to: {
-            backgroundPosition: "-200% 0",
-          },
+          from: { backgroundPosition: "0 0" },
+          to: { backgroundPosition: "-200% 0" },
         },
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 3s linear infinite",
+        fadeUp: "fadeUp 1s ease-out forwards",
       },
     },
   },

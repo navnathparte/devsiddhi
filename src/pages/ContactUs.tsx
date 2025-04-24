@@ -42,49 +42,40 @@ const ContactSplit: React.FC = () => {
         <div className="flex-1 flex flex-col items-center px-6 py-10">
           <div className="w-full max-w-2xl flex flex-col gap-10 space-y-4">
             {/* Title */}
-            <h1 className="text-4xl flex flex-col items-center justify-center font-bold text-[#B68842]">
+            <h1 className="animate-bounce text-4xl text-center text-[#B68842] font-bold">
               Get in touch
             </h1>
 
             {/* Details */}
             <div className="grid grid-cols-2 gap-15 m-2 p-4">
-              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg">
+              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
                 <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
                   <FontAwesomeIcon icon={faPhone} />
                 </div>
-                <p className="text-black font-bold text-lg mt-2">Phone</p>
-                <p className="mt-1 text-sm font-medium">+91 98750 33195</p>
+                <p className="text-black font-bold text-lg mt-0">Phone</p>
+                <a
+                  href="tel:+919875033195"
+                  className="mt-1 block text-sm font-medium text-white hover:text-[#ccafaf] transition-colors duration-200"
+                >
+                  +91 98750 33195
+                </a>
               </div>
 
               {/* Card 2 */}
-              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg">
+              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
                 <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </div>
-                <p className="text-black font-bold text-lg mt-2">Email</p>
-                <p className="mt-1 text-sm font-semibold">
+                <p className="text-black font-bold text-lg mt-0">Email</p>
+                <a
+                  href="mailto:9nath.parte@gmail.com"
+                  className="mt-1 block text-sm font-semibold text-white hover:text-[#ccafaf] transition-colors duration-200"
+                >
                   9nath.parte@gmail.com
-                </p>
+                </a>
               </div>
 
               {/* Card 3 */}
-              {/* <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg">
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
-                  <FontAwesomeIcon icon={faMapMarkerAlt} />
-                </div>
-                <p className="text-black font-bold text-lg mt-0.5">Address</p>
-                <a
-                  href="https://www.google.com/maps?q=Metro-Rail+station,+Devsiddhi+falicia,+opp.+Randesan,+Randesan,+Gandhinagar,+Gujarat+382421"
-                  title="Open in Google Maps"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-1 block text-sm font-semibold text-white hover:text-[#ccafaf] transition-colors duration-200"
-                >
-                  Metro-Rail station, Devsiddhi falicia, opp. Randesan,
-                  Randesan, Gandhinagar, Gujarat 382421
-                </a>
-              </div> */}
-
               <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
                 <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
                   <FontAwesomeIcon icon={faMapMarkerAlt} />
@@ -102,12 +93,12 @@ const ContactSplit: React.FC = () => {
               </div>
 
               {/* Card 4 */}
-              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg">
+              <div className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg transform transition-transform duration-300 hover:scale-105">
                 <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
                   <FontAwesomeIcon icon={faShareAlt} />
                 </div>
                 <p className="text-black font-bold text-lg mt-2">Follow Me</p>
-                <div className="mt-3 flex justify-center  space-x-4 text-white text-xl">
+                <div className="mt-3 flex justify-center space-x-6 text-white text-3xl">
                   <a
                     href="https://www.linkedin.com/company/devsiddhi-group10"
                     target="_blank"
