@@ -90,7 +90,7 @@ const Post = () => {
     >
       {/* Background */}
       <div
-        className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0 opacity-10"
+        className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
         style={{ backgroundImage: "url('/BG-Pattern.png')" }}
       />
 
