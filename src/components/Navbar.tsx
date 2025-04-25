@@ -5,7 +5,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const isHome = location.pathname === "/";
-  const isAbout = ["/about"].includes(location.pathname);
+  const isAbout = ["/abouts"].includes(location.pathname);
 
   // Add an array of nav items
   const navItems = [

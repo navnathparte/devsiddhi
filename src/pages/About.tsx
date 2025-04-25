@@ -4,27 +4,37 @@ const About = () => {
   return (
     <div className="relative">
       {/* Background Image Layer */}
-      <div
-        className="fixed inset-0 bg-cover bg-center transform scale-110 pointer-events-none z-0"
-        // style={{ backgroundImage: "url('/BG-Pattern.png')" }}
+      <motion.div
+        initial={{ scale: 1.05 }}
+        animate={{ scale: 1.1 }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
+        className="fixed inset-0 bg-cover bg-center pointer-events-none z-0"
+        style={{ backgroundImage: "url('/BG-Pattern.png')" }}
       />
 
       {/* Foreground Content */}
-      <div className="relative z-10 w-full min-h-screen flex justify-center items-center p-8 bg-[url('/BG-Pattern.png')] bg-cover bg-center bg-no-repeat bg-fixed">
+      <div className="relative z-10 w-full flex justify-center items-start p-4 md:p-8 bg-cover bg-center bg-no-repeat bg-fixed">
         <motion.div
-          className="w-full max-w-6xl rounded-xl flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-5 translate-y-[-30%]"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-6xl rounded-3xl flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-5"
         >
-          {/* Left Image Section */}
+          {/* Logo Section */}
           <motion.div
-            className="flex-1 flex justify-center items-center"
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex-1 flex justify-center items-center"
           >
-            <img
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
               src="/Devsiddhi-Logo-(2).png"
               alt="Devsiddhi Logo"
               className="max-w-full h-auto object-contain"
@@ -33,26 +43,41 @@ const About = () => {
 
           {/* Text Section */}
           <motion.div
-            className="flex-1 flex flex-col justify-center gap-4"
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex-1 flex flex-col justify-center gap-4"
           >
-            <p className="text-xl text-[#B68842] font-bold">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-xl text-[#B68842] font-bold"
+            >
               Devsiddhi Construction Co., a pioneering real-estate development
               company based in Ahmedabad (Gujarat), has been benchmarking the
               industry since its inception in 2015.
-            </p>
-            <p className="text-xl text-[#B68842] font-bold">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="text-xl text-[#B68842] font-bold"
+            >
               Devsiddhi Group imbibes the three core values of Excellence,
               Expertise and Elegance across all the development projects that
               they undertake.
-            </p>
-            <p className="text-xl text-[#B68842] font-bold">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+              className="text-xl text-[#B68842] font-bold"
+            >
               The portfolio is a mix of residential and commercial projects.
               Leading corporate and retail brands have chosen Devsiddhi
               properties.
-            </p>
+            </motion.p>
           </motion.div>
         </motion.div>
       </div>
