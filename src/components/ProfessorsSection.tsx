@@ -17,22 +17,16 @@ const ProfessorsSection = () => {
 
   const professors: Professor[] = [
     {
-      name: "Shin Saimdang",
-      title: "Professor",
+      name: "Hiren Soni",
+      title: "Managing Director",
       imageSrc: "/navnath.png",
-      affiliation: [
-        "Ph.D. Committee Member, Seoul National University - Department of Profiling",
-        "Member, NYC Research Association",
-      ],
+      affiliation: [""],
     },
     {
-      name: "Su Ji",
-      title: "Professor",
-      imageSrc: "/download.png",
-      affiliation: [
-        "Ph.D. Committee Member, Seoul National University - Department of Profiling",
-        "Member, NYC Research Association",
-      ],
+      name: "Vijay Soni",
+      title: "Managing Director",
+      imageSrc: "/download-2.png",
+      affiliation: [""],
     },
   ];
 
@@ -88,7 +82,7 @@ const ProfessorsSection = () => {
             animate="visible"
           >
             <motion.div
-              className="rounded-full overflow-hidden w-48 h-88 md:w-56 md:h-56 mb-6 bg-gray-100 shadow-lg"
+              className="rounded-xl overflow-hidden w-48 h-88 md:w-56 md:h-56 mb-6 bg-gray-100 shadow-lg"
               whileHover={{
                 scale: 1.05,
                 boxShadow:
