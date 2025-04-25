@@ -10,7 +10,7 @@ const posts = [
     date: "9 Apr 2022",
     comments: 17,
     excerpt: "Ncididunt ut labore et dolore magna aliqua. Ut enim veniam...",
-    image: "assets/green.jpg",
+    image: "assets/green-min.jpg",
   },
   {
     category: "DEVELOPMENT",
@@ -18,7 +18,7 @@ const posts = [
     date: "21 Feb 2022",
     comments: 34,
     excerpt: "Ncididunt ut labore et dolore magna aliqua. Ut enim veniam...",
-    image: "assets/fable.jpg",
+    image: "assets/fable-min.jpg",
   },
   {
     category: "ESSENTIALS",
@@ -26,7 +26,7 @@ const posts = [
     date: "1 Jan 2022",
     comments: 10,
     excerpt: "Ncididunt ut labore et dolore magna aliqua. Ut enim veniam...",
-    image: "assets/felicia.jpg",
+    image: "assets/felicia-min.jpg",
   },
   {
     category: "MARKETING",
@@ -34,7 +34,7 @@ const posts = [
     date: "15 Dec 2021",
     comments: 23,
     excerpt: "Ncididunt ut labore et dolore magna aliqua. Ut enim veniam...",
-    image: "assets/Fabula.jpg",
+    image: "assets/Fabula-min.jpg",
   },
 ];
 
