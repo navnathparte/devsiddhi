@@ -10,6 +10,7 @@ const CustomScrollbar: React.FC = () => {
   const routes = [
     { path: "/", name: "Home" },
     { path: "/about", name: "About" },
+    { path: "/director", name: "About" },
     { path: "/achievements", name: "Achievements" },
     { path: "/portfolio-upcoming", name: "Portfolio" },
     { path: "/portfolio-completed", name: "Portfolio" },
@@ -47,7 +48,7 @@ const CustomScrollbar: React.FC = () => {
 
     setTimeout(() => {
       setIsScrolling(false);
-    }, 1000);
+    }, 2000);
   };
 
   useEffect(() => {

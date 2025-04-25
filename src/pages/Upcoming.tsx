@@ -37,6 +37,7 @@ const images: ImageItem[] = [
 const Upcoming: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const settings = {
     dots: false,
@@ -53,28 +54,44 @@ const Upcoming: React.FC = () => {
   };
 
   useEffect(() => {
-    document.body.style.overflowY = "hidden";
+    // Update scroll position when scrolling
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      document.body.style.overflowY = "auto";
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <div className="relative min-h-screen">
-      {/* Background */}
+      {/* Parallax Layers */}
       <div
-        className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
-        style={{ backgroundImage: "url('/OngoingProjects.jpg')" }}
+        className="fixed inset-0 bg-cover bg-center pointer-events-none z-0"
+        style={{
+          backgroundImage: "url('/assets/OngoingProjects.jpg')",
+          transform: `translateY(${scrollPosition * 0.3}px)`, // Parallax effect for the background layer 1
+        }}
+      />
+
+      <div
+        className="fixed inset-0 bg-cover bg-center pointer-events-none z-10"
+        style={{
+          backgroundImage: "url('/assets/Layer2.jpg')",
+          transform: `translateY(${scrollPosition * 0.5}px)`, // Parallax effect for layer 2 (faster than background)
+        }}
       />
 
       {/* Foreground content */}
-      <div className="relative z-10 p-6">
-        <h1 className="text-4xl font-extrabold text-center text-[#B68842] mb-18">
+      <div className="relative z-20 p-6">
+        <h1 className="text-4xl font-extrabold text-center text-[#B68842] mb-18 animate-fadeUp">
           Current Projects
         </h1>
 
         <div className="flex flex-wrap justify-center items-center gap-10">
-          {/* Slider */}
           <div className="w-[600px] h-[400px] rounded-xl overflow-hidden shadow-lg">
             <Slider ref={sliderRef} {...settings}>
               {images.map((img, index) => (
@@ -82,15 +99,14 @@ const Upcoming: React.FC = () => {
                   <img
                     src={img.src}
                     alt={img.caption}
-                    className="w-full h-[400px] object-cover"
+                    className="w-full h-[400px] object-cover transition duration-500 ease-in-out transform hover:scale-105"
                   />
                 </div>
               ))}
             </Slider>
           </div>
 
-          {/* Info */}
-          <div className="flex flex-col gap-4 max-w-sm">
+          <div className="flex flex-col gap-4 max-w-sm animate-fadeUp">
             <h2 className="text-3xl font-bold text-[#B68842]">
               {images[currentSlide].title}
             </h2>
@@ -105,7 +121,6 @@ const Upcoming: React.FC = () => {
             </ul>
           </div>
 
-          {/* Arrows */}
           <div className="flex flex-col items-center gap-4">
             <button
               className="w-12 h-12 bg-[#B68842] rounded-full flex items-center justify-center text-white text-xl hover:bg-[#D12023]"

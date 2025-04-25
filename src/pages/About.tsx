@@ -8,7 +8,7 @@ const About = () => {
       />
 
       {/* Foreground Content */}
-      <div className="relative z-10 w-full min-h-screen flex justify-center items-center p-8 bg-[url('/BG-Pattern.png')] bg-cover bg-center bg-no-repeat bg-fixed">
+      <div className="relative z-10 w-full min-h-screen flex justify-center items-start p-8 bg-[url('/BG-Pattern.png')] bg-cover bg-center bg-no-repeat bg-fixed">
         <div className="w-full max-w-6xl rounded-3xl flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-5">
           {/* Empty Left Side (can be filled with an image or something later) */}
           <div className="flex-1 flex justify-center items-center">

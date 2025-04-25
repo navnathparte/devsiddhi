@@ -9,6 +9,7 @@ import Upcoming from "./pages/Upcoming";
 import CustomScrollbar from "./components/CustomScrollbar";
 import Portfolio from "./pages/Completed";
 import Achievements from "./pages/Achievements";
+import ProfessorsSection from "./components/ProfessorsSection";
 
 function App() {
   const location = useLocation();
@@ -20,6 +21,7 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/director" element={<ProfessorsSection />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/portfolio-upcoming" element={<Upcoming />} />
           <Route path="/portfolio-completed" element={<Portfolio />} />
