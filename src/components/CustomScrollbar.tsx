@@ -48,7 +48,7 @@ const CustomScrollbar: React.FC = () => {
 
     setTimeout(() => {
       setIsScrolling(false);
-    }, 2000);
+    }, 1000);
   };
 
   useEffect(() => {
