@@ -72,7 +72,7 @@ const Upcoming: React.FC = () => {
       <div
         className="fixed inset-0 bg-cover bg-center pointer-events-none z-0"
         style={{
-          backgroundImage: "url('/assets/OngoingProjects.jpg')",
+          backgroundImage: "url('/OngoingProjects.jpg')",
           transform: `translateY(${scrollPosition * 0.3}px)`, // Parallax effect for the background layer 1
         }}
       />
