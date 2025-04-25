@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const About = () => {
   return (
     <div className="relative">
@@ -8,19 +10,34 @@ const About = () => {
       />
 
       {/* Foreground Content */}
-      <div className="relative z-10 w-full min-h-screen flex justify-center items-start p-8 bg-[url('/BG-Pattern.png')] bg-cover bg-center bg-no-repeat bg-fixed">
-        <div className="w-full max-w-6xl rounded-3xl flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-5">
-          {/* Empty Left Side (can be filled with an image or something later) */}
-          <div className="flex-1 flex justify-center items-center">
+      <div className="relative z-10 w-full min-h-screen flex justify-center items-center p-8 bg-[url('/BG-Pattern.png')] bg-cover bg-center bg-no-repeat bg-fixed">
+        <motion.div
+          className="w-full max-w-6xl rounded-xl flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-5 translate-y-[-30%]"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          {/* Left Image Section */}
+          <motion.div
+            className="flex-1 flex justify-center items-center"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <img
               src="/Devsiddhi-Logo-(2).png"
               alt="Devsiddhi Logo"
               className="max-w-full h-auto object-contain"
             />
-          </div>
+          </motion.div>
 
           {/* Text Section */}
-          <div className="flex-1 flex flex-col justify-center gap-4">
+          <motion.div
+            className="flex-1 flex flex-col justify-center gap-4"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <p className="text-xl text-[#B68842] font-bold">
               Devsiddhi Construction Co., a pioneering real-estate development
               company based in Ahmedabad (Gujarat), has been benchmarking the
@@ -36,8 +53,8 @@ const About = () => {
               Leading corporate and retail brands have chosen Devsiddhi
               properties.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
