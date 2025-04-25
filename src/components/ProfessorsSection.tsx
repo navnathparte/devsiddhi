@@ -20,13 +20,19 @@ const ProfessorsSection = () => {
       name: "Hiren Soni",
       title: "Managing Director",
       imageSrc: "/navnath.png",
-      affiliation: ["As Managing Director, responsible for strategic leadership and overall company performance"],
+      affiliation: [
+        "As Managing Director, I lead with vision and strategy, overseeing operations and driving growth across all business verticals.",
+        " With a commitment to innovation and excellence, I ensure our team delivers exceptional value to clients.",
+      ],
     },
     {
       name: "Vijay Soni",
       title: "Managing Director",
       imageSrc: "/download-2.png",
-      affiliation: ["As Managing Director, responsible for strategic leadership and overall company performance"],
+      affiliation: [
+        "As Managing Director, I lead with vision and strategy, overseeing operations and driving growth across all business verticals.",
+        " With a commitment to innovation and excellence, I ensure our team delivers exceptional value to clients.",
+      ],
     },
   ];
 
