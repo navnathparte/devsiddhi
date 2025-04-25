@@ -60,7 +60,7 @@ const Upcoming: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative">
       {/* Background */}
       <div
         className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"

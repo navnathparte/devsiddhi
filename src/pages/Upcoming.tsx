@@ -67,7 +67,7 @@ const Upcoming: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative ">
       {/* Parallax Layers */}
       <div
         className="fixed inset-0 bg-cover bg-center pointer-events-none z-0"
