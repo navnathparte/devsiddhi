@@ -92,11 +92,11 @@ const CustomScrollbar: React.FC = () => {
 
       switch (e.key) {
         case "ArrowRight":
-        case "ArrowDown":
+        // case "ArrowDown":
           scrollToRoute(activeIndex + 1);
           break;
         case "ArrowLeft":
-        case "ArrowUp":
+        // case "ArrowUp":
           scrollToRoute(activeIndex - 1);
           break;
       }

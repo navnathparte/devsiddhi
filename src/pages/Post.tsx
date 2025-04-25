@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 const posts = [
   {
     category: "DESIGN",
@@ -37,7 +38,6 @@ const posts = [
   },
 ];
 
-// Custom arrows
 const PrevArrow = (props: any) => (
   <button
     className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 z-10 text-white bg-gray-800 p-2 rounded-full hover:bg-gray-700"
@@ -77,23 +77,20 @@ const settings = {
 
 const Post = () => {
   return (
-    <div className="relative min-h-screen">
-      <div
-        className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
-        style={{ backgroundImage: "url('/BG-Pattern.png')" }}
-      />
+    <div className="relative">
+      {/* Background */}
+      <div className="relative inset-0 bg-cover bg-center scale-110 pointer-events-none z-0" />
 
-      <div className="flex justify-center items-center text-center mb-6">
-        <h2 className="text-4xl text-[#B68842] font-extrabold">Latest Posts</h2>
-      </div>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-center items-center gap-10 h-full px-4">
+        <h2 className="text-4xl text-[#B68842] font-extrabold mb-6">
+          Latest Posts
+        </h2>
 
-      <div className="flex items-center justify-center p-12">
-        {/* Centered title above the slider */}
-
-        <div className="w-full max-w-[900px] relative">
+        <div className="w-full max-w-[900px]">
           <Slider {...settings}>
             {posts.map((post, index) => (
-              <div key={index} className="px-6">
+              <div key={index} className="px-4">
                 <div className="bg-[#3a3535] text-[#B68900] rounded-3xl overflow-hidden shadow-lg h-[500px]">
                   <img
                     src={post.image}

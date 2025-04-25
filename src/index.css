@@ -3,7 +3,7 @@
 
 @layer base {
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
 }
 
@@ -58,7 +58,7 @@ main > section {
     from var(--border-angle),
     transparent 25%,
     #fff,
-    #D12023 99%,
+    #d12023 99%,
     transparent
   );
 
@@ -74,15 +74,15 @@ main > section {
 
   animation: bg-spin 3s linear infinite;
 }
-  @keyframes bg-spin {
-    to {
-      --border-angle: 1turn;
-    }
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
   }
+}
 
-  &:hover {
-    animation-play-state: paused;
-  }
+&:hover {
+  animation-play-state: paused;
+}
 
 @property --border-angle {
   syntax: "<angle>";
