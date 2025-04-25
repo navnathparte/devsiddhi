@@ -102,7 +102,7 @@ const ProfessorsSection = () => {
               animate="visible"
             >
               <motion.div
-                className="rounded-xl overflow-hidden w-48 h-88 md:w-56 md:h-56 mb-6 bg-gray-100 shadow-lg"
+                className="rounded-xl overflow-hidden w-48 h-88 md:w-56 md:h-56 mb-6 bg-gray-100 shadow-lg z-1"
                 whileHover={{
                   scale: 1.05,
                   boxShadow:
