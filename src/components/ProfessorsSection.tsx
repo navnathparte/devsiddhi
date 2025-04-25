@@ -20,13 +20,13 @@ const ProfessorsSection = () => {
       name: "Hiren Soni",
       title: "Managing Director",
       imageSrc: "/navnath.png",
-      affiliation: [""],
+      affiliation: ["As Managing Director, responsible for strategic leadership and overall company performance"],
     },
     {
       name: "Vijay Soni",
       title: "Managing Director",
       imageSrc: "/download-2.png",
-      affiliation: [""],
+      affiliation: ["As Managing Director, responsible for strategic leadership and overall company performance"],
     },
   ];
 
