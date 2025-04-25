@@ -1,11 +1,7 @@
-"use client";
-
 import Slider from "react-slick";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 const posts = [
   {
     category: "DESIGN",
@@ -60,11 +56,10 @@ const NextArrow = (props: any) => (
   </button>
 );
 
-// Slider settings
 const settings = {
   dots: true,
   infinite: true,
-  speed: 600,
+  speed: 500,
   slidesToShow: 2,
   slidesToScroll: 1,
   nextArrow: <NextArrow />,
@@ -82,47 +77,23 @@ const settings = {
 
 const Post = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="relative "
-    >
-      {/* Background */}
+    <div className="relative min-h-screen">
       <div
         className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
         style={{ backgroundImage: "url('/BG-Pattern.png')" }}
       />
 
-      {/* Title */}
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex justify-center items-center text-center mb-6 relative z-10"
-      >
+      <div className="flex justify-center items-center text-center mb-6">
         <h2 className="text-4xl text-[#B68842] font-extrabold">Latest Posts</h2>
-      </motion.div>
+      </div>
 
-      {/* Carousel */}
-      <div className="flex items-center justify-center p-12 relative z-10">
+      <div className="flex items-center justify-center p-12">
+        {/* Centered title above the slider */}
+
         <div className="w-full max-w-[900px] relative">
           <Slider {...settings}>
             {posts.map((post, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.15,
-                  type: "spring",
-                  stiffness: 80,
-                }}
-                className="px-6"
-              >
+              <div key={index} className="px-6">
                 <div className="bg-[#3a3535] text-[#B68900] rounded-3xl overflow-hidden shadow-lg h-[500px]">
                   <img
                     src={post.image}
@@ -143,12 +114,12 @@ const Post = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </Slider>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
