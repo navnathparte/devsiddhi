@@ -1,5 +1,5 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+// import { useLocation } from "react-router-dom";
+// import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Section from "./components/Section";
@@ -12,7 +12,7 @@ import Post from "./pages/Post";
 import ContactSplit from "./pages/ContactUs";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <div className="relative">
