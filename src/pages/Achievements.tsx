@@ -7,10 +7,7 @@ const Achievements: React.FC = () => {
   return (
     <div className="">
       <div className="w-auto flex justify-center items-center overflow-hidden p-8 h-[750px]">
-        <div
-          className="fixed inset-0 bg-cover bg-center transform scale-110 pointer-events-none"
-          style={{ backgroundImage: "url('/RankBG.jpg')", zIndex: 0 }}
-        />
+        <div className="fixed inset-0 bg-cover bg-center transform scale-110 pointer-events-none" />
 
         <div className="z-10 flex flex-wrap gap-8">
           <div className="flex flex-wrap gap-8">

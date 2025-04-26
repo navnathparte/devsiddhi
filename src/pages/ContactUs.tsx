@@ -30,13 +30,6 @@ const ContactSplit: React.FC = () => {
     }, 2000);
   };
 
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => {
-      document.body.style.overflowY = "auto";
-    };
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col md:flex-row h-screen overflow-hidden">
@@ -164,7 +157,7 @@ const ContactSplit: React.FC = () => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex flex-col items-center px-0 py-0"
+          className="flex-1 z-10 flex flex-col items-center px-0 py-0"
         >
           <div className="w-full max-w-3xl mx-auto px-4 py-2 flex flex-col gap-8">
             <div className="text-center space-y-2 py-2">

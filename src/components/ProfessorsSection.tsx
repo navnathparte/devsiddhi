@@ -71,7 +71,7 @@ const ProfessorsSection = () => {
           ease: "easeInOut",
         }}
         className="fixed inset-0 bg-cover bg-center pointer-events-none z-0"
-        style={{ backgroundImage: "url('/BG-Pattern.png')" }}
+        // style={{ backgroundImage: "url('/BG-Pattern.png')" }}
       />
 
       <div className="py-16 px-4 bg-white max-w-6xl mx-auto">

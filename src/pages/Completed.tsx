@@ -52,19 +52,12 @@ const Upcoming: React.FC = () => {
     afterChange: (index: number) => setCurrentSlide(index),
   };
 
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => {
-      document.body.style.overflowY = "auto";
-    };
-  }, []);
-
   return (
     <div className="relative">
       {/* Background */}
       <div
         className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
-        style={{ backgroundImage: "url('/Completed-Projects.jpg')" }}
+        // style={{ backgroundImage: "url('/Completed-Projects.jpg')" }}
       />
 
       {/* Foreground content */}
