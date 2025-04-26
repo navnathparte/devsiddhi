@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
@@ -10,26 +11,36 @@ import CustomScrollbar from "./components/CustomScrollbar";
 import Portfolio from "./pages/Completed";
 import Achievements from "./pages/Achievements";
 import ProfessorsSection from "./components/ProfessorsSection";
+import { ParallaxProvider } from "./components/HorizontalParallax";
 
 function App() {
   const location = useLocation();
 
   return (
     <div className="relative">
-      <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/director" element={<ProfessorsSection />} />
-          <Route path="/achievements" element={<Achievements />} />
-          <Route path="/portfolio-upcoming" element={<Upcoming />} />
-          <Route path="/portfolio-completed" element={<Portfolio />} />
-          <Route path="/post" element={<Post />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
-      </AnimatePresence>
-      <CustomScrollbar />
+      <ParallaxProvider>
+        <div
+          className="fixed inset-0 z-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: "url('/BG-Pattern.png')" }}
+        />
+
+        <Navbar />
+
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/director" element={<ProfessorsSection />} />
+            <Route path="/achievements" element={<Achievements />} />
+            <Route path="/portfolio-upcoming" element={<Upcoming />} />
+            <Route path="/portfolio-completed" element={<Portfolio />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </Routes>
+        </AnimatePresence>
+
+        <CustomScrollbar />
+      </ParallaxProvider>
     </div>
   );
 }
