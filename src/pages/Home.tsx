@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer"; // 👈 import
 export default function Home() {
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
-  const [isSecondVideo, setIsSecondVideo] = useState(false);
+  const [isSecondVideo] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
 
   const { ref, inView } = useInView({
