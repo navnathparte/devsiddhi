@@ -1,9 +1,66 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
+  const [activeSection, setActiveSection] = useState("home");
+  
   const isHome = location.pathname === "/";
-  const isAbout = ["/abouts"].includes(location.pathname);
+  const isAbout = ["/about"].includes(location.pathname);
+
+  const sections = ["home", "about", "achievements", "post", "projects", "contact"];
+
+  useEffect(() => {
+    // Function to check which section is in view for horizontal scroll
+    const handleScroll = () => {
+      // For horizontal scroll, we check scrollLeft instead of scrollY
+      const scrollPosition = document.documentElement.scrollLeft;
+      const viewportWidth = window.innerWidth;
+      
+      // Calculate which section is most visible (0-based index)
+      const sectionIndex = Math.floor(scrollPosition / viewportWidth);
+      
+      // Get the section name based on index, handling edge cases
+      const currentSection = sections[Math.min(sectionIndex, sections.length - 1)];
+      
+      if (currentSection && currentSection !== activeSection) {
+        setActiveSection(currentSection);
+        // Update URL hash
+        window.history.pushState(null, "", `#${currentSection}`);
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("wheel", handleScroll);
+    
+    // Initial check for active section
+    handleScroll();
+    
+    // Clean up event listeners
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("wheel", handleScroll);
+    };
+  }, [activeSection]);
+
+  // Handle link click to scroll horizontally to section
+  const handleLinkClick = (e:any, sectionId:any) => {
+    e.preventDefault();
+    
+    // Find the index of the section
+    const sectionIndex = sections.indexOf(sectionId);
+    if (sectionIndex !== -1) {
+      // Scroll horizontally to the section
+      window.scrollTo({
+        left: sectionIndex * window.innerWidth,
+        behavior: "smooth"
+      });
+      
+      setActiveSection(sectionId);
+      window.history.pushState(null, "", `#${sectionId}`);
+    }
+  };
 
   return (
     <div
@@ -17,49 +74,34 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* LEFT SIDE: Logo */}
           <div className="text-2xl font-bold">
-            {isHome ? (
-              <img src="DevsiddhiLogo.png" alt="Home Logo" className="w-40" />
-            ) : (
-              <img
-                src="Devsiddhi-Logo-(2).png"
-                alt="Default Logo"
-                className="w-40"
-              />
-            )}
+            <a href="/">
+              {isHome ? (
+                <img src="DevsiddhiLogo.png" alt="Home Logo" className="w-60" />
+              ) : (
+                <img
+                  src="Devsiddhi-Logo-(2).png"
+                  alt="Default Logo"
+                  className="w-60"
+                />
+              )}
+            </a>
           </div>
 
           {/* RIGHT SIDE: Navbar Links */}
           <ul className="flex space-x-8 text-[#B68842]">
-            <li>
-              <a href="#home" className="hover:text-[#D12023]">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-[#D12023]">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#achievements" className="hover:text-[#D12023]">
-                Achievements
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="hover:text-[#D12023]">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#post" className="hover:text-[#D12023]">
-                Post
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-[#D12023]">
-                Contact Us
-              </a>
-            </li>
+            {sections.map((section) => (
+              <li key={section}>
+                <a
+                  href={`#${section}`}
+                  onClick={(e) => handleLinkClick(e, section)}
+                  className={`hover:text-[#D12023] transition-colors ${
+                    activeSection === section ? "text-[#D12023] font-extrabold" : ""
+                  }`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>

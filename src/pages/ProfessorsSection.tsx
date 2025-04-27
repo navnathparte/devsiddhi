@@ -87,7 +87,7 @@ const ProfessorsSection = () => {
             transition={{ duration: 0.7 }}
             className="mb-12 text-center"
           >
-            <h2 className="text-4xl font-bold text-[#B68842] mb-4">
+            <h2 className="text-4xl font-bold text-[#fff] mb-4">
               Meet Our Directors
             </h2>
           </motion.div>
@@ -128,7 +128,7 @@ const ProfessorsSection = () => {
                 </h3>
                 <p className="text-blue-500 mb-4">{professor.title}</p>
 
-                <div className="text-[#B68842] text-center mb-6">
+                <div className="text-[#ffffff] text-center font-bold mb-6 text-xl">
                   {professor.affiliation.map((item, i) => (
                     <p key={i} className="mb-2 text-sm">
                       {item}

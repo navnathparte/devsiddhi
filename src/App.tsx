@@ -1,4 +1,3 @@
-// src/App.tsx
 import Navbar from "./components/ Navbar";
 import Section from "./components/Section";
 import Home from "./pages/Home";
@@ -23,7 +22,7 @@ function App() {
         <About />
       </Section>
 
-      <Section id="about" title="About" bgImage="/Completed-Projects.jpg" >
+      <Section id="about-professors" title="Professors" bgImage="/Completed-Projects.jpg">
         <ProfessorsSection />
       </Section>
 
@@ -31,7 +30,7 @@ function App() {
         <Achievements />
       </Section>
 
-      <Section id="post" title="Post"  bgImage="/blurred.jpg">
+      <Section id="post" title="Post" bgImage="/blurred.jpg">
         <Post />
       </Section>
 
@@ -39,7 +38,8 @@ function App() {
         <Projects />
       </Section>
 
-      <Section id="projects" title="Projects" bgImage="/OngoingProjects.jpg">
+      {/* Changed to projects-upcoming */}
+      <Section id="projects" title="Upcoming Projects" bgImage="/OngoingProjects.jpg">
         <Upcoming />
       </Section>
 
