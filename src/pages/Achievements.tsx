@@ -5,13 +5,10 @@ import "../index.css";
 
 const Achievements: React.FC = () => {
   return (
-    <div className="">
-      <div className="w-auto flex justify-center items-center overflow-hidden p-8 h-[750px]">
-        <div
-          className="fixed inset-0 bg-cover bg-center transform scale-110 pointer-events-none"
-          style={{ backgroundImage: "url('/RankBG.jpg')", zIndex: 0 }}
-        />
-
+    <div
+      className="flex items-center justify-center min-h-screen px-4"
+    >
+      <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden max-w-7xl w-full">
         <div className="z-10 flex flex-wrap gap-8">
           <div className="flex flex-wrap gap-8">
             {[
@@ -43,9 +40,9 @@ const Achievements: React.FC = () => {
                 <div className="text-white mb-2 p-1">{item.icon}</div>
                 <div className="group [perspective:800px] w-fit mx-auto">
                   <div
-                    className="bg-gradient-to-r from-[#693132] via-[#B68842] to-[#90494a] 
-      rounded-full w-22 h-22 flex items-center justify-center 
-      transition-transform duration-500 transform group-hover:[transform:rotateY(180deg)] 
+                    className="bg-gradient-to-r from-[#693132] via-[#B68842] to-[#90494a]
+      rounded-full w-22 h-22 flex items-center justify-center
+      transition-transform duration-500 transform group-hover:[transform:rotateY(180deg)]
       [transform-style:preserve-3d] group-hover:animate-bounceCustom"
                   >
                     <div className="backface-hidden">

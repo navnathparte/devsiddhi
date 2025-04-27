@@ -34,7 +34,7 @@ const images: ImageItem[] = [
   },
 ];
 
-const Upcoming: React.FC = () => {
+const Projects: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -64,7 +64,7 @@ const Upcoming: React.FC = () => {
       {/* Background */}
       <div
         className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
-        style={{ backgroundImage: "url('/Completed-Projects.jpg')" }}
+        // style={{ backgroundImage: "url('/Completed-Projects.jpg')" }}
       />
 
       {/* Foreground content */}
@@ -126,4 +126,4 @@ const Upcoming: React.FC = () => {
   );
 };
 
-export default Upcoming;
+export default Projects;

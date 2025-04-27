@@ -77,7 +77,9 @@ const settings = {
 
 const Post = () => {
   return (
-    <div className="relative">
+    <div
+      className="flex items-center justify-center min-h-screen px-4"
+    >
       {/* Background */}
       <div className="relative inset-0 bg-cover bg-center scale-110 pointer-events-none z-0" />
 

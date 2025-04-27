@@ -1,35 +1,51 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+// src/App.tsx
+import Navbar from "./components/ Navbar";
+import Section from "./components/Section";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Navbar from "./components/Navbar";
+import Projects from "./pages/Projects";
 import ContactUs from "./pages/ContactUs";
+import ProfessorsSection from "./pages/ProfessorsSection";
+import Achievements from "./pages/Achievements";
 import Post from "./pages/Post";
 import Upcoming from "./pages/Upcoming";
-import CustomScrollbar from "./components/CustomScrollbar";
-import Portfolio from "./pages/Completed";
-import Achievements from "./pages/Achievements";
-import ProfessorsSection from "./components/ProfessorsSection";
 
 function App() {
-  const location = useLocation();
-
   return (
-    <div className="relative">
+    <div className="overflow-x-scroll flex snap-x snap-mandatory w-[800vw] h-screen">
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/director" element={<ProfessorsSection />} />
-          <Route path="/achievements" element={<Achievements />} />
-          <Route path="/portfolio-upcoming" element={<Upcoming />} />
-          <Route path="/portfolio-completed" element={<Portfolio />} />
-          <Route path="/post" element={<Post />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
-      </AnimatePresence>
-      <CustomScrollbar />
+
+      <Section id="home" title="Home">
+        <Home />
+      </Section>
+
+      <Section id="about" title="About" bgImage="/BG-Pattern.png">
+        <About />
+      </Section>
+
+      <Section id="about" title="About" bgImage="/Completed-Projects.jpg" >
+        <ProfessorsSection />
+      </Section>
+
+      <Section id="achievements" title="Achievements">
+        <Achievements />
+      </Section>
+
+      <Section id="post" title="Post"  bgImage="/blurred.jpg">
+        <Post />
+      </Section>
+
+      <Section id="projects" title="Projects" bgImage="/Completed-Projects.jpg">
+        <Projects />
+      </Section>
+
+      <Section id="projects" title="Projects" bgImage="/OngoingProjects.jpg">
+        <Upcoming />
+      </Section>
+
+      <Section id="contact" title="Contact Us" bgImage="/city.jpg">
+        <ContactUs />
+      </Section>
     </div>
   );
 }
