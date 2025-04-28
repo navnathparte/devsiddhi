@@ -57,7 +57,7 @@ const ContactSplit: React.FC = () => {
             </motion.h1>
 
             {/* Contact Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 m-2 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-6 m-1 p-4">
               {/* Card List */}
               {[
                 {
@@ -219,7 +219,8 @@ const ContactSplit: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="shimmer-button inline-flex py-2 px-6 text-sm items-center justify-center rounded-full bg-[linear-gradient(110deg,#AB5B55,45%,#EADCF7,55%,#AB5B55)] bg-[length:200%_100%] font-bold text-white gap-1 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  className="w-full rounded-full bg-brown-100 p-2 font-semibold text-white focus:outline-none text-sm
+                  inline-flex py-2 px-6 animate-shimmer items-center justify-center bg-[linear-gradient(110deg,#AB5B55,45%,#EADCF7,55%,#AB5B55)] bg-[length:200%_100%] gap-1 transition-colors focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                 >
                   {isSubmitting ? "Submitting..." : "Submit now"}
                 </button>

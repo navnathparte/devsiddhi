@@ -1,4 +1,4 @@
-import Navbar from "./components/ Navbar";
+import Navbar from "./components/Navbar";
 import Section from "./components/Section";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -22,7 +22,7 @@ function App() {
         <About />
       </Section>
 
-      <Section id="about-professors" title="Professors" bgImage="/Completed-Projects.jpg">
+      <Section id="about-professors" title="Directors" bgImage="/Completed-Projects.jpg">
         <ProfessorsSection />
       </Section>
 
@@ -34,12 +34,11 @@ function App() {
         <Post />
       </Section>
 
-      <Section id="projects" title="Projects" bgImage="/Completed-Projects.jpg">
+      <Section id="projects" title="Completed Projects" bgImage="/Completed-Projects.jpg">
         <Projects />
       </Section>
 
-      {/* Changed to projects-upcoming */}
-      <Section id="projects" title="Upcoming Projects" bgImage="/OngoingProjects.jpg">
+      <Section id="projects-upcoming" title="Upcoming Projects" bgImage="/OngoingProjects.jpg">
         <Upcoming />
       </Section>
 
