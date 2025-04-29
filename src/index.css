@@ -4,3 +4,37 @@
 html {
   scroll-behavior: smooth;
 }
+
+.box {
+  --border-angle: 0turn;
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #b68842,
+    #b68842 5%,
+    #b68842 60%,
+    #b68842 95%
+  );
+
+  border: solid 4px transparent;
+  border-radius: 1.8em;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    #fff,
+    #d12023 99%,
+    transparent
+  );
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.shimmer-button {
+  animation: shimmer 3s linear infinite;
+}
