@@ -59,36 +59,35 @@ const LoadingOverlay: React.FC<Props> = ({}) => {
   }, [isDone]);
 
   return (
-    <div className="fixed inset-0 w-screen z-30 h-screen flex flex-col justify-center items-center font-['Roboto'] overflow-hidden">
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/city.jpg')" }}
-        animate={backgroundControls}
-      />
-
-      {/* Flipping & Zooming Logo */}
+    <>
       {!isDone && (
-        <motion.img
-          src="Devsiddhi-Logo-(2).png"
-          alt="Devsiddhi Logo"
-          className="w-150 h-80 mb-10"
-          animate={controls}
-          style={{ transformStyle: "preserve-3d" }}
-        />
-      )}
-
-      {/* Counter at bottom */}
-      {!isDone && (
-        <div className="absolute bottom-10 text-center w-[200px]">
-          {/* <p className="text-[40px] font-thin text-[#f60d54]">loading</p> */}
-          <h1 className="text-white text-[60px] mt-[-10px]">{count}%</h1>
-          <hr
-            className="mt-2 h-[1px] border-none bg-[#f60d54]"
-            style={{ width: `${count}%` }}
+        <div className="fixed inset-0 w-screen h-screen z-30 flex flex-col justify-center items-center font-['Roboto'] overflow-hidden">
+          <motion.div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/city.jpg')" }}
+            animate={backgroundControls}
           />
+
+          {/* Flipping & Zooming Logo */}
+          <motion.img
+            src="Devsiddhi-Logo-(2).png"
+            alt="Devsiddhi Logo"
+            className="w-150 h-80 mb-10"
+            animate={controls}
+            style={{ transformStyle: "preserve-3d" }}
+          />
+
+          {/* Counter at bottom */}
+          <div className="absolute bottom-10 text-center w-[200px]">
+            <h1 className="text-white text-[60px] mt-[-10px]">{count}%</h1>
+            <hr
+              className="mt-2 h-[1px] border-none bg-[#f60d54]"
+              style={{ width: `${count}%` }}
+            />
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
