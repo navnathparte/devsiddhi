@@ -44,10 +44,22 @@ const LoadingOverlay: React.FC<Props> = ({}) => {
         transition: { duration: 1, ease: "easeInOut" },
       });
     }
+    if (!isDone) {
+      document.body.style.overflowX = "hidden";
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowX = "auto";
+      document.body.style.overflowY = "auto";
+    }
+
+    return () => {
+      document.body.style.overflowX = "auto";
+      document.body.style.overflowY = "auto";
+    };
   }, [isDone]);
 
   return (
-    <div className="fixed inset-0 w-screen h-screen flex flex-col justify-center items-center font-['Roboto'] overflow-hidden">
+    <div className="fixed inset-0 w-screen z-30 h-screen flex flex-col justify-center items-center font-['Roboto'] overflow-hidden">
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/city.jpg')" }}
@@ -68,7 +80,7 @@ const LoadingOverlay: React.FC<Props> = ({}) => {
       {/* Counter at bottom */}
       {!isDone && (
         <div className="absolute bottom-10 text-center w-[200px]">
-          <p className="text-[40px] font-thin text-[#f60d54]">loading</p>
+          {/* <p className="text-[40px] font-thin text-[#f60d54]">loading</p> */}
           <h1 className="text-white text-[60px] mt-[-10px]">{count}%</h1>
           <hr
             className="mt-2 h-[1px] border-none bg-[#f60d54]"
