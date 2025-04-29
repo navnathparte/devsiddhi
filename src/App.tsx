@@ -25,7 +25,7 @@ function App() {
       <Section
         id="about-professors"
         title="Directors"
-        bgImage="/Completed-Projects.jpg"
+        bgImage="BG-Pattern.png"
       >
         <ProfessorsSection />
       </Section>
