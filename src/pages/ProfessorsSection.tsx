@@ -13,12 +13,12 @@ const ProfessorsSection = () => {
   // Use a more robust route change detection approach
   const location = useLocation();
   const [animationKey, setAnimationKey] = useState(0);
-  const [mounted, setMounted] = useState(false);
+  const [, setMounted] = useState(false);
 
   // First mount effect
   useEffect(() => {
     setMounted(true);
-    
+
     // Clean up function
     return () => {
       setMounted(false);
@@ -28,7 +28,7 @@ const ProfessorsSection = () => {
   // Reset animations on route change
   useEffect(() => {
     // This will force a reset of all animations
-    setAnimationKey(prev => prev + 1);
+    setAnimationKey((prev) => prev + 1);
   }, [location.pathname, location.search]);
 
   const professors: Professor[] = [
@@ -63,13 +63,13 @@ const ProfessorsSection = () => {
     },
     exit: {
       opacity: 0,
-      transition: { duration: 0.2 }
-    }
+      transition: { duration: 0.2 },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
-    visible: (i:any) => ({
+    visible: (i: any) => ({
       y: 0,
       opacity: 1,
       transition: {
@@ -78,28 +78,28 @@ const ProfessorsSection = () => {
         delay: i * 0.2,
       },
     }),
-    exit: { 
-      y: 50, 
+    exit: {
+      y: 50,
       opacity: 0,
-      transition: { duration: 0.2 } 
-    }
+      transition: { duration: 0.2 },
+    },
   };
 
   const headingVariants = {
     hidden: { opacity: 0, y: -40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
         duration: 0.7,
-        ease: "easeOut" 
-      } 
+        ease: "easeOut",
+      },
     },
-    exit: { 
-      opacity: 0, 
-      y: -20, 
-      transition: { duration: 0.2 } 
-    }
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.2 },
+    },
   };
 
   return (
