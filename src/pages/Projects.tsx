@@ -1,9 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+"use client";
+
+import {
+  motion,
+  useScroll,
+  useTransform,
+  MotionValue,
+} from "framer-motion";
+import { useRef } from "react";
 
 interface ImageItem {
   src: string;
@@ -34,96 +37,69 @@ const images: ImageItem[] = [
   },
 ];
 
-const Projects: React.FC = () => {
-  const sliderRef = useRef<Slider>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+function useParallax(value: MotionValue<number>, distance: number) {
+  return useTransform(value, [0, 1], [-distance, distance]);
+}
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-    draggable: true,
-    afterChange: (index: number) => setCurrentSlide(index),
-  };
+interface ProjectSlideProps {
+  data: ImageItem;
+  index: number;
+}
 
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => {
-      document.body.style.overflowY = "auto";
-    };
-  }, []);
+function ProjectSlide({ data }: ProjectSlideProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const y = useParallax(scrollYProgress, 200);
 
   return (
-    <div className="relative">
-      {/* Background */}
-      <div
-        className="fixed inset-0 bg-cover bg-center scale-110 pointer-events-none z-0"
-        // style={{ backgroundImage: "url('/Completed-Projects.jpg')" }}
-      />
-
-      {/* Foreground content */}
-      <div className="relative z-10 p-6">
-        <h1 className="text-4xl font-extrabold text-center text-[#B68842] mb-18">
-          Completed Projects
-        </h1>
-
-        <div className="flex flex-wrap justify-center items-center gap-10">
-          {/* Slider */}
-          <div className="w-[600px] h-[400px] rounded-xl overflow-hidden shadow-lg">
-            <Slider ref={sliderRef} {...settings}>
-              {images.map((img, index) => (
-                <div key={index}>
-                  <img
-                    src={img.src}
-                    alt={img.caption}
-                    className="w-full h-[400px] object-cover"
-                  />
-                </div>
-              ))}
-            </Slider>
-          </div>
-
-          {/* Info */}
-          <div className="flex flex-col gap-4 max-w-sm">
-            <h2 className="text-3xl font-bold text-[#B68842]">
-              {images[currentSlide].title}
-            </h2>
-            <p className="text-black">
-              This is a brief overview of the project. It showcases some of the
-              best work I've done using React, Tailwind, and other technologies.
-            </p>
-            <ul className="text-[#B68842] space-y-2">
-              <li>
-                <strong>Client:</strong> {images[currentSlide].caption}
-              </li>
-            </ul>
-          </div>
-
-          {/* Arrows */}
-          <div className="flex flex-col items-center gap-4">
-            <button
-              className="w-12 h-12 bg-[#B68842] rounded-full flex items-center justify-center text-white text-xl hover:bg-[#D12023]"
-              onClick={() => sliderRef.current?.slickPrev()}
-            >
-              <FontAwesomeIcon icon={faArrowUp} />
-            </button>
-            <button
-              className="w-12 h-12 bg-[#B68842] rounded-full flex items-center justify-center text-white text-xl hover:bg-[#D12023]"
-              onClick={() => sliderRef.current?.slickNext()}
-            >
-              <FontAwesomeIcon icon={faArrowDown} />
-            </button>
-          </div>
-        </div>
+    <section
+      ref={ref}
+      className="h-screen snap-start flex flex-col md:flex-row justify-center items-center px-6 gap-10"
+    >
+      {/* Image */}
+      <div className="w-[600px] h-[400px] rounded-xl overflow-hidden shadow-lg">
+        <img
+          src={data.src}
+          alt={data.caption}
+          className="w-full h-full object-cover"
+        />
       </div>
+
+      <div className="max-w-md flex flex-col gap-4">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-[#B68842]"
+        >
+          {data.title}
+        </motion.h2>
+        <p className="text-gray-800">
+          This is a brief overview of the project. It showcases some of the best
+          work I've done using React, Tailwind, and other technologies.
+        </p>
+        <ul className="text-[#B68842] space-y-1">
+          <li>
+            <strong>Client:</strong> {data.caption}
+          </li>
+        </ul>
+      </div>
+
+      {/* Optional Number */}
+      <motion.span
+        style={{ y }}
+        className="absolute right-10 top-1/2 text-[#B68842] text-4xl font-mono hidden md:block"
+      ></motion.span>
+    </section>
+  );
+}
+
+export default function ProjectsParallax() {
+  return (
+    <div
+      className="snap-y snap-mandatory overflow-y-scroll h-screen"
+      style={{ scrollbarWidth: "none" }}
+    >
+      {images.map((item, index) => (
+        <ProjectSlide key={index} data={item} index={index} />
+      ))}
     </div>
   );
-};
-
-export default Projects;
+}
