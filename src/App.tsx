@@ -22,7 +22,11 @@ function App() {
         <About />
       </Section>
 
-      <Section id="about-professors" title="Directors" bgImage="/Completed-Projects.jpg">
+      <Section
+        id="about-professors"
+        title="Directors"
+        bgImage="/Completed-Projects.jpg"
+      >
         <ProfessorsSection />
       </Section>
 
@@ -34,15 +38,23 @@ function App() {
         <Post />
       </Section>
 
-      <Section id="projects" title="Completed Projects" bgImage="/Completed-Projects.jpg">
+      <Section
+        id="projects"
+        title="Completed Projects"
+        bgImage="/Completed-Projects.jpg"
+      >
         <Projects />
       </Section>
 
-      <Section id="projects-upcoming" title="Upcoming Projects" bgImage="/OngoingProjects.jpg">
+      <Section
+        id="projects-upcoming"
+        title="Upcoming Projects"
+        bgImage="/OngoingProjects.jpg"
+      >
         <Upcoming />
       </Section>
 
-      <Section id="contact" title="Contact Us" bgImage="/city.jpg">
+      <Section id="contact" title="Contact Us" bgImage="/BG-Pattern.png">
         <ContactUs />
       </Section>
     </div>

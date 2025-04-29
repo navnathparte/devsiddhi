@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
-// Define types for our mappings
 type SectionId =
   | "home"
   | "about"
@@ -20,10 +18,9 @@ type NavbarItem =
   | "contact";
 
 const Navbar = () => {
-  const location = useLocation();
   const [activeSection, setActiveSection] = useState<NavbarItem>("home");
   const [currentSectionId, setCurrentSectionId] = useState<SectionId>("home");
-  const [currentRoute, setCurrentRoute] = useState("Home");
+  const [, setCurrentRoute] = useState("Home");
 
   const navbarMapping: Record<SectionId, NavbarItem> = {
     home: "home",
@@ -140,10 +137,10 @@ const Navbar = () => {
           : ""
       }`}
     >
-      <nav className="fixed top-0 left-0 w-full z-50 bg-transparent font-bold p-5">
+      <nav className="fixed top-0 left-0 w-full z-10 bg-transparent font-bold p-5">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold flex items-center">
-            <a href="#home" onClick={(e) => handleLinkClick(e, "home")}>
+            <a href="home" onClick={(e) => handleLinkClick(e, "home")}>
               {isHomeSection ? (
                 <img src="DevsiddhiLogo.png" alt="Home Logo" className="w-60" />
               ) : (
@@ -160,7 +157,7 @@ const Navbar = () => {
             {navbarItems.map((navItem) => (
               <li key={navItem}>
                 <a
-                  href={`#${navItem}`}
+                  href={`${navItem}`}
                   onClick={(e) => handleLinkClick(e, navItem)}
                   className={`hover:text-[#D12023] transition-colors ${
                     activeSection === navItem

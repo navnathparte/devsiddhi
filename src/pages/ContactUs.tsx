@@ -37,8 +37,8 @@ const ContactSplit: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen px-4">
-      <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden max-w-7xl w-full">
+    <div className="relative">
+      <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden w-full">
         {/* Left Side: Contact Info */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -46,7 +46,7 @@ const ContactSplit: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="flex-1 flex flex-col items-center justify-center px-6 py-10"
         >
-          <div className="w-full max-w-2xl flex flex-col gap-10 space-y-4">
+          <div className="w-full flex flex-col gap-20 space-y-4">
             <motion.h1
               initial={{ y: -30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -57,7 +57,7 @@ const ContactSplit: React.FC = () => {
             </motion.h1>
 
             {/* Contact Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-1 gap-6 m-1 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-15 m-2 p-4">
               {/* Card List */}
               {[
                 {
@@ -83,7 +83,7 @@ const ContactSplit: React.FC = () => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg"
+                  className="relative bg-[#B68842] text-white rounded-3xl pt-14 pb-6 px-6 text-center shadow-lg w-[100%]"
                 >
                   <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#1f1f1f] border-4 border-black rounded-full flex items-center justify-center text-[#B68842] text-xl">
                     <FontAwesomeIcon icon={item.icon} />
@@ -219,8 +219,7 @@ const ContactSplit: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full rounded-full bg-brown-100 p-2 font-semibold text-white focus:outline-none text-sm
-                  inline-flex py-2 px-6 animate-shimmer items-center justify-center bg-[linear-gradient(110deg,#AB5B55,45%,#EADCF7,55%,#AB5B55)] bg-[length:200%_100%] gap-1 transition-colors focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  className="shimmer-button inline-flex py-2 px-6 text-sm items-center justify-center rounded-full bg-[linear-gradient(110deg,#AB5B55,45%,#EADCF7,55%,#AB5B55)] bg-[length:200%_100%] font-bold text-white gap-1 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                 >
                   {isSubmitting ? "Submitting..." : "Submit now"}
                 </button>
